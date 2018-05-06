@@ -9,6 +9,12 @@ Se ha implementado una nueva utilidad de búsqueda por juego para saber que amig
 |<img src="capturas/16.png" alt="alt text" width="450" height="250">|<img src="capturas/17.png" alt="alt text" width="450" height="250">|
 |-----|--------------|
 |Principal|Buscador|
+
+Si no hay amigo que tengan el juego, se nos muestra un mensaje de error, en caso de encontrarlo, se nos muestra un botón que nos permitirá ver los amigos que lo tienen.
+
+|<img src="capturas/18.png" alt="alt text" width="450" height="250">|<img src="capturas/19.png" alt="alt text" width="450" height="250">|
+|-----|--------------|
+|Principal|Buscador|
 ## Introducción
 
 La aplicación web creada para este ejercicio gestiona los juegos de mesa que tienen los usuarios que se registran en la aplicación.
