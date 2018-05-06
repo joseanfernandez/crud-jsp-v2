@@ -1,0 +1,572 @@
+#fondo-principal {
+    background-color: beige;
+    color: #444;
+}
+
+#wrapper-reg {
+    width: 50%;
+}
+
+#wrapper-login {
+    margin-top: 5%;
+    width: 40%;
+    min-width: 300px;
+}
+
+#tituloin {
+    text-align: center;
+    color: #444;
+    margin-top: 5%;
+}
+
+#datos {
+    background-color: #FFF;
+    margin-left: 72px;
+    width: 300px;
+    max-width: 70%;
+
+}
+
+#ddatos {
+    position: absolute;
+    z-index: 10;
+    display: none;
+    width: 100%;
+    margin-top: 49px;
+    background-color: transparent;
+
+}
+
+
+#milogo {
+    width: 40px;
+}
+
+
+
+
+
+button {
+    color: #444;
+    border-color: #FFF;
+    background-color: #FFF;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+#logoindex {
+    width: 130px;
+}
+
+#searchTerm {
+    width: 429px;
+    max-width: 70%;
+    border: 1px solid #FFF;
+    padding-left: 8px;
+
+}
+
+#searchTerm:focus {
+    outline: none;
+    border: 1px solid #FFF;
+    color: #444;
+}
+
+#mynav {
+    background-color: #68A294;
+    position: absolute;
+    z-index: 1;
+}
+
+
+
+
+#button {
+    margin-top: 30px;
+    background-color: #68A294;
+    color: #FFF;
+}
+
+#freepik {
+    font-size: small;
+    text-align: right;
+
+}
+
+#freepik a,
+a:hover {
+    text-decoration: none;
+    color: #6890A2;
+}
+
+#freepikcon {
+    height: 30px;
+    padding: 5px;
+    position: fixed;
+    bottom: 0px;
+    background-color: #eee;
+    width: 100%;
+    padding-right: 10px;
+    color: #444;
+}
+
+
+.contenido {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    color: #444;
+    margin-top: 65px;
+
+}
+
+.mitadpantalla {
+
+    padding: 30px;
+    width: 50%;
+    height: 520px;
+    float: left;
+    background-color: beige;
+
+
+}
+
+.mitadpantalla2 {
+
+    width: 50%;
+    height: 520px;
+
+    float: left;
+    background-color: #FFF;
+
+}
+
+.mitadpantalla3 {
+    padding: 30px;
+
+    height: 250px;
+
+    background-color: #EEE;
+
+}
+
+.mitadpantalla4 {
+    padding: 30px;
+
+    height: 220px;
+
+    background-color: #FFF;
+
+}
+
+#envio {
+    margin: 0 auto;
+    width: 210px;
+    margin-top: 30px;
+}
+
+#registro {
+    display: block;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    color: #6890A2;
+}
+
+
+
+h2 {
+    color: #3A5EE2;
+    text-align: center;
+    margin-top: 20%;
+    font-size: 2.3em;
+}
+
+.navbar {
+    background-color: #3A5EE2;
+    /*background: linear-gradient(to bottom right, #3A5EE2, #FFF);*/
+}
+
+#logo-navbar {
+    color: #FFF;
+    font-size: 2em;
+}
+
+#logo,
+#logo:visited {
+    color: #FFF;
+}
+
+#mail {
+    margin-top: 10px;
+}
+
+.error {
+    display: none;
+    color: red;
+    font-size: 0.8em;
+    margin: 0;
+}
+
+#bienvenida {
+    margin-top: 7%;
+}
+
+#izquierda {
+    float: left;
+    text-align: left;
+    padding: 1em 5em;
+    margin-bottom: 7em;
+}
+
+#derecha {
+    float: right;
+    text-align: left;
+    padding: 1em 5em;
+    margin-bottom: 7em;
+}
+
+.custom-select {
+    width: 40%
+}
+
+.progress {
+    height: 30px;
+}
+
+table span {
+    margin-left: 2em;
+}
+
+#izquierda h2 {
+    text-align: left;
+}
+
+#modifica {
+    width: 70%;
+    float: left;
+}
+
+#h5 {
+    color: #444;
+}
+
+#tablajuegos td {
+
+    padding: 5px;
+    width: 40%;
+    padding-left: 20%;
+
+}
+
+#tablajuegos {
+
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 40%;
+    display: block;
+    height: 350px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+
+
+}
+
+
+#tablatop {
+
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 25%;
+
+}
+
+#botonesjuegos {
+
+
+    margin-top: 10%;
+}
+
+#eluser {
+    background-color: transparent;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+#selecjuego {
+    margin: 0 auto;
+    width: 255px;
+
+    margin-top: 10%;
+}
+
+#selecjuego select {
+
+    width: 255px;
+
+}
+
+.mensaje {
+    margin-top: 65px;
+    position: absolute;
+    z-index: 98;
+    opacity: .5;
+    background-color: green;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    color: #FFF;
+    display: none;
+
+}
+
+.mensaje2 {
+    margin-top: 65px;
+    position: absolute;
+    z-index: 98;
+    opacity: .5;
+    background-color: red;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    color: #FFF;
+    display: none;
+
+}
+
+.enuso {
+    opacity: .5;
+    background-color: red;
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    color: #FFF;
+    display: none;
+
+}
+
+
+#modificadatos {
+
+    background-color: #FFF;
+    margin: 0 auto;
+    width: 500px;
+    margin-top: 30px;
+    text-align: center;
+    border: 5px solid #68A294;
+    padding: 15px;
+}
+
+#modificadatos label {
+    display: inline-block;
+    width: 400px;
+    font-size: 1.5em;
+    color: #444;
+}
+
+#modificadatos input {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.onlyread {
+    color: #999;
+    border: none;
+}
+
+#h2form {
+    text-align: center;
+    color: #444;
+    margin-top: 100px;
+
+}
+
+#btform {
+    background-color: #6890A2;
+    color: #FFF;
+
+}
+
+.losjuegosde {
+
+    padding: 30px;
+    width: 100%;
+    height: 520px;
+    background-color: beige;
+}
+
+
+
+#tablajuegos2 {
+
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 20%;
+    text-align: center;
+
+}
+
+
+
+
+.tdnom {
+
+    width: 74.5%;
+}
+
+#vistaAdmin button {
+    padding: 7px;
+
+}
+
+#vistaAdmin {
+
+    margin-top: 50px;
+    width: 100%;
+
+
+}
+
+#vistaAdmin .busqueda {
+    background-color: transparent;
+    border: none;
+}
+
+.mitadpantallaAdmin {
+
+    padding: 10px;
+    width: 50%;
+    height: 520px;
+    float: left;
+    background-color: beige;
+
+
+}
+
+#h2une {
+    margin-top: 30px;
+    text-align: center;
+    color: #444;
+
+}
+
+#formregistro {
+
+    margin: 0 auto;
+    width: 500px;
+    margin-top: 30px;
+    text-align: center;
+    border: 5px solid #68A294;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+
+
+#formregistro input {
+    display: inline-block;
+    width: 90%;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#conregistro {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#formulario {
+    margin-top: -40px;
+}
+
+h4 {
+    text-align: center;
+}
+
+.mitadpantalla3a {
+    padding: 30px;
+
+    height: 320px;
+
+    background-color: #EEE;
+
+}
+
+.mitadpantalla4a {
+    padding: 30px;
+
+    height: 150px;
+
+    background-color: #FFF;
+
+}
+
+#formalta {
+
+    margin: 0 auto;
+    width: 55%;
+    margin-top: 30px;
+    padding: 5px;
+}
+
+
+
+#formalta input {
+    display: inline-block;
+    width: 100%;
+
+}
+
+#fad {
+    margin-top: 5px;
+}
+
+.azulB {
+    background-color: #537dae;
+}
+
+.guardajuego {
+
+    margin: 0 auto;
+    width: 63%;
+}
+
+.guardajuego input {
+
+    border-radius: 2px;
+    border: 1px solid #eee;
+}
+
+.guardajuego select {
+    height: 29px;
+    border-radius: 2px;
+    border: 1px solid #eee;
+}
+
+.borrajuego {
+
+    margin: 0 auto;
+    width: 63%;
+    margin-top: 5px;
+}
+
+
+.borrajuego select {
+    height: 29px;
+    width: 70%;
+    border-radius: 2px;
+    border: 1px solid #eee;
+}
