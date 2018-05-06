@@ -10,17 +10,18 @@ Se ha implementado una nueva utilidad de búsqueda por juego para saber que amig
 |-----|--------------|
 |Principal|Buscador|
 
-Si no hay amigo que tengan el juego, se nos muestra un mensaje de error, en caso de encontrarlo, se nos muestra un botón que nos permitirá ver los amigos que lo tienen.
 
+Si no hay amigo que tengan el juego, se nos muestra un mensaje de error, en caso de encontrarlo, se nos muestra un botón que nos permitirá ver los amigos que lo tienen.
 
 |<img src="capturas/18.png" alt="alt text" width="450" height="250">|<img src="capturas/19.png" alt="alt text" width="450" height="250">|
 |-----|--------------|
 |Mensaje de error|Botón para ver amigos|
 
+
 Si hacemos click en el botón, se nos muestra una tabla con los amigos que lo tienen.
-|<img src="capturas/11.png" alt="alt text" width="417" height="250">|
+|<img src="capturas/20.png" alt="alt text" width="417" height="250">|
 |-----|
-|     |  
+  
 
 ## Introducción
 
