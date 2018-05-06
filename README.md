@@ -32,6 +32,15 @@ En la pestaña juegos que encontramos en la barra de navegación, encontramos un
 |<img src="capturas/21.png" alt="alt text" width="417" height="250">|
 |-----|
 |Juegos por categoría|
+
+
+### Cifrado
+
+Ahora las contraseñas son seguras, almacenandose cifradas en la base de datos.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
 ## Introducción
 
 La aplicación web creada para este ejercicio gestiona los juegos de mesa que tienen los usuarios que se registran en la aplicación.
