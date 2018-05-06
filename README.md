@@ -1,5 +1,14 @@
 # Ejercicio CRUD con JSP y BBDD
 
+# ¡ Nuevo en esta versión !
+
+### Uso de ArrayList
+
+Se ha implementado una nueva utilidad de búsqueda por juego para saber que amigo lo tiene
+
+|<img src="capturas/16.png" alt="alt text" width="450" height="250">|<img src="capturas/17.png" alt="alt text" width="450" height="250">|
+|-----|--------------|
+|Principal|Buscador|
 ## Introducción
 
 La aplicación web creada para este ejercicio gestiona los juegos de mesa que tienen los usuarios que se registran en la aplicación.
