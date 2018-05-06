@@ -22,7 +22,7 @@ Si hacemos click en el botón, se nos muestra una tabla con los amigos que lo ti
 
 |<img src="capturas/20.png" alt="alt text" width="417" height="250">|
 |-----|
-|     |
+|Tabla de amigos|
   
 
 ## Introducción
