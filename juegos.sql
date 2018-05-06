@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 20-03-2018 a las 18:58:15
+-- Tiempo de generación: 06-05-2018 a las 19:09:55
 -- Versión del servidor: 10.1.28-MariaDB
 -- Versión de PHP: 7.1.11
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `ADMIN` (
   `CODADM` int(10) NOT NULL,
   `EMAIL` varchar(50) NOT NULL,
-  `PASSW` varchar(30) NOT NULL,
+  `PASSW` varchar(100) NOT NULL,
   `FECHALT` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -40,7 +40,7 @@ CREATE TABLE `ADMIN` (
 --
 
 INSERT INTO `ADMIN` (`CODADM`, `EMAIL`, `PASSW`, `FECHALT`) VALUES
-(1, 'admin@ljdma.com', 'admin', '2018-03-16 20:29:01');
+(1, 'admin@ljdma.com', 'd033e22ae348aeb5660fc2140aec35850c4da997', '2018-05-06 16:51:29');
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ CREATE TABLE `AMIGO` (
   `CODAMI` int(10) NOT NULL,
   `USER` varchar(30) NOT NULL,
   `EMAIL` varchar(50) NOT NULL,
-  `PASSW` varchar(30) NOT NULL,
+  `PASSW` varchar(100) NOT NULL,
   `NOM` varchar(50) NOT NULL,
   `APE` varchar(50) NOT NULL,
   `FECHALT` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -63,16 +63,17 @@ CREATE TABLE `AMIGO` (
 --
 
 INSERT INTO `AMIGO` (`CODAMI`, `USER`, `EMAIL`, `PASSW`, `NOM`, `APE`, `FECHALT`) VALUES
-(1, 'Dani', 'daniel@gmail.com', 'user', 'Daniel', 'Cubo', '2018-03-17 13:48:02'),
-(2, 'Rubi', 'silvia@gmail.com', 'user', 'Silvia', 'Majiro', '2018-03-17 13:48:20'),
-(3, 'Jess', 'jessica@gmail.com', 'user', 'Jessica', 'Romero ', '2018-03-17 23:06:01'),
-(4, 'Corta', 'alvaro@gmail.com', 'user', 'Álvaro', 'Cortacero Pérez', '2018-03-17 13:48:49'),
-(5, 'Josean', 'josean@gmail.com', 'user', 'Jose', 'Fernández García', '2018-03-20 15:05:28'),
-(12, 'Adelita', 'adela@gmail.com', 'user', 'Adela', 'Pacheco', '2018-03-17 21:23:35'),
-(25, 'Paquito', 'paco@gmail.com', 'user', 'Paco', 'Martinez', '2018-03-17 23:04:28'),
-(26, 'Galindo', 'galindo@gmail.com', 'user', 'Galindo', 'Martinez', '2018-03-17 23:09:23'),
-(35, 'Laura', 'laura@gmail.com', 'user', 'Laura', 'Martinez', '2018-03-20 15:07:25'),
-(36, 'Luis', 'luis@gmail.com', 'user', 'Luis', 'Zamora', '2018-03-20 15:08:04');
+(1, 'Dani', 'daniel@gmail.com', '12dea96fec20593566ab75692c9949596833adc9', 'Daniel', 'Cubo', '2018-05-06 16:30:12'),
+(2, 'Rubi', 'silvia@gmail.com', '12dea96fec20593566ab75692c9949596833adc9', 'Silvia', 'Majiro', '2018-05-06 16:30:12'),
+(3, 'Jess', 'jessica@gmail.com', '12dea96fec20593566ab75692c9949596833adc9', 'Jessica', 'Romero ', '2018-05-06 16:30:12'),
+(4, 'Corta', 'alvaro@gmail.com', '12dea96fec20593566ab75692c9949596833adc9', 'Álvaro', 'Cortacero Pérez', '2018-05-06 16:30:12'),
+(5, 'Josean', 'josean@gmail.com', '12dea96fec20593566ab75692c9949596833adc9', 'Jose Antonio', 'Fernández García', '2018-05-06 16:45:50'),
+(12, 'Adelita', 'adela@gmail.com', '12dea96fec20593566ab75692c9949596833adc9', 'Adela', 'Pacheco', '2018-05-06 16:30:12'),
+(35, 'Laura', 'laura@gmail.com', '12dea96fec20593566ab75692c9949596833adc9', 'Laura', 'Martinez', '2018-05-06 16:30:12'),
+(39, 'Amador', 'amador@gmail.com', '12dea96fec20593566ab75692c9949596833adc9', 'Carlos', 'Rivas', '2018-05-06 16:30:12'),
+(40, 'Manu', 'manu@gmail.com', '12dea96fec20593566ab75692c9949596833adc9', 'Manuel', 'Fernández García', '2018-05-06 16:30:12'),
+(45, 'aaa', 'a@a.com', '12dea96fec20593566ab75692c9949596833adc9', 'aaaa', 'aaaa', '2018-05-06 16:41:11'),
+(46, 'bbb', 'b@b.com', '12dea96fec20593566ab75692c9949596833adc9', 'bbb', 'bbb', '2018-05-06 16:52:49');
 
 -- --------------------------------------------------------
 
@@ -170,10 +171,14 @@ INSERT INTO `TIENEN` (`CODAMI`, `CODJUE`) VALUES
 (5, 6),
 (5, 8),
 (5, 9),
+(5, 10),
 (5, 12),
 (5, 14),
 (5, 16),
-(5, 21);
+(5, 21),
+(40, 3),
+(40, 10),
+(40, 21);
 
 --
 -- Índices para tablas volcadas
@@ -230,7 +235,7 @@ ALTER TABLE `ADMIN`
 -- AUTO_INCREMENT de la tabla `AMIGO`
 --
 ALTER TABLE `AMIGO`
-  MODIFY `CODAMI` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `CODAMI` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT de la tabla `CATEGORIA`
@@ -242,7 +247,7 @@ ALTER TABLE `CATEGORIA`
 -- AUTO_INCREMENT de la tabla `JUEGO`
 --
 ALTER TABLE `JUEGO`
-  MODIFY `CODJUE` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `CODJUE` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Restricciones para tablas volcadas
