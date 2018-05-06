@@ -23,8 +23,15 @@ Si hacemos click en el botón, se nos muestra una tabla con los amigos que lo ti
 |<img src="capturas/20.png" alt="alt text" width="417" height="250">|
 |-----|
 |Tabla de amigos|
-  
 
+
+### Uso de HashMap
+
+En la pestaña juegos que encontramos en la barra de navegación, encontramos una pantalla que nos muestra los juegos que hay por cada categoría.
+
+|<img src="capturas/21.png" alt="alt text" width="417" height="250">|
+|-----|
+|Juegos por categoría|
 ## Introducción
 
 La aplicación web creada para este ejercicio gestiona los juegos de mesa que tienen los usuarios que se registran en la aplicación.
