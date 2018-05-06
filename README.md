@@ -19,8 +19,10 @@ Si no hay amigo que tengan el juego, se nos muestra un mensaje de error, en caso
 
 
 Si hacemos click en el botón, se nos muestra una tabla con los amigos que lo tienen.
+
 |<img src="capturas/20.png" alt="alt text" width="417" height="250">|
 |-----|
+|     |
   
 
 ## Introducción
