@@ -1,3 +1,4 @@
+<%@page import="org.apache.commons.codec.digest.DigestUtils"%>
 <%@page import="java.sql.*"%>
     <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <!DOCTYPE html>
@@ -41,6 +42,7 @@
                             <a style="margin-bottom: 5px; font-size: small;" href="aLogin.jsp">¿Eres admin?</a>
                             <input type="email" id="mail" name="email" class="form-control form-group" placeholder="Correo electrónico" required autofocus value="">
                             <input type="password" id="password" name="pass" value="" class="form-control form-group" placeholder="Contraseña" required>
+                            
                             <input id="button" class="btn btn-lg btn-basic btn-block" type="submit" name="button" value="Acceder">
                             <a href="registro.jsp" id="registro">Registrarse</a>
                             <small class="mt-5 mb-3 text-muted">© LosJuegosDeMiAmigo 2018</small>

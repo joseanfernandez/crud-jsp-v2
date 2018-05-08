@@ -1,3 +1,5 @@
+<%@page import="org.apache.commons.codec.digest.DigestUtils"%>
+<%@page import="java.util.*"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Statement"%>
     <%@page import="java.sql.ResultSet"%>
@@ -48,9 +50,6 @@
                                         <form id="myForm"><input id="searchTerm" type="text" onkeyup="doSearch()" placeholder="Busca" onkeypress="mostrar()" /></form>
                                     </div>
                                     <ul class="navbar-nav mr-auto">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="porCategoria.jsp?email=<% out.print(email); %>">Juegos</a>
-                                        </li>
                                         <li class="nav-item active">
 
 
@@ -105,136 +104,86 @@
         %>
                                     <div class="mensaje" id="<% out.print(mostrar); %>">Actualizado correctamente</div>
                                     <div class="mensaje2" id="<% out.print(mostrar2); %>">Error</div>
-                                    <div class="contenido">
-
-                                        <div class="mitadpantalla">
-                                            <h2>Mis Juegos</h2>
-                                            <table id="tablajuegos" class="table table-striped">
-                                                <%    
-       
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection conexion3 = DriverManager.getConnection("jdbc:mysql://localhost:3306/juegos","root", "");
-        Statement s3 = conexion3.createStatement();
-        ResultSet juegos = s3.executeQuery("SELECT * FROM TIENEN T JOIN  AMIGO A ON T.CODAMI=A.CODAMI"
-          + " JOIN JUEGO J ON T.CODJUE=J.CODJUE WHERE EMAIL='"+email+"' ORDER BY NOMJUE"); 
-        while (juegos.next()) {
-            out.println("<tr><td>" + juegos.getString("nomjue") + "</td></tr>");
-            
-        }
-        conexion3.close();
-        
-        %>
-                                            </table>
-
-                                        </div>
-
-                                        <div class="mitadpantalla2">
-
-                                            <div class="mitadpantalla3">
-                                                <h2>Top amigos</h2>
-                                                <table id="tablatop">
-                                                    <%    
-       
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection conexion4 = DriverManager.getConnection("jdbc:mysql://localhost:3306/juegos","root", "");
-        Statement s4 = conexion4.createStatement();
-        ResultSet top = s4.executeQuery("SELECT USER, COUNT(*) AS 'JUEGOS' FROM AMIGO A JOIN TIENEN T ON A.CODAMI=T.CODAMI" +
-          " GROUP BY A.CODAMI ORDER BY JUEGOS DESC LIMIT 3");
-        while (top.next()) {
-            out.println("<tr><td>" + top.getString("user") + "</td><td>"
-              + top.getString("juegos") + "</td></tr>");
-            
-        }
-        conexion4.close();
-        
-        %>
-                                                </table>
-                                            </div>
-                                            <div class="mitadpantalla4">
-
-                                                <h2>¿Alguna novedad?</h2>
-
-                                                <form action="actualiza.jsp" id="selecjuego">
-                                                    <select name="juego">
-        <%    
-        
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection conexion5 = DriverManager.getConnection("jdbc:mysql://localhost:3306/juegos","root", "");
-        Statement s5 = conexion5.createStatement();
-        ResultSet actualiza = s5.executeQuery("SELECT * FROM JUEGO ORDER BY NOMJUE");
-        while (actualiza.next()) {
-            out.println("<option value='"+actualiza.getString("codjue")+"'>" + 
-              actualiza.getString("nomjue") + "</option>");
-              
-            
-        }
-        
-        conexion5.close();
-        
-        %>
-                         </select>
-
-                                                    <div id="botonesjuegos" class="btn-group">
-                                                        <button style='background-color: #6890A2; border:none;' name="button" value="update" type="submit" class="btn btn-success">Añadir Juego</button>
-                                                        <button style='background-color: #d62d0d; border:none;' name="button" value="delete" type="submit" class="btn btn-danger">Eliminar Juego</button>
-                                                    </div>
-                                                    <input type="hidden" name="codamigo" value="<% out.print(codamigo); %>">
-                                                    <input type="hidden" name="email" value="<% out.print(email); %>">
-                                                </form>
-
-
-                                            </div>
-                                                
-                                            <div class="mitadpantalla5">
-                                                <h2>¿Lo tiene alguien?</h2>
-                                                <div class="col-lg-6 offset-3">
-                                                <form action="buscaJuego.jsp" method="GET">
-                                                    <input type="text" name="nomjue" value="" placeholder="Juego..." onclick="noVer()" />
-                                                <input type="hidden" name="email" value="<% out.print(email); %>">
-                                                <button style='background-color: #6890A2; border:none; margin-top: -3.5px;' name="button" value="update" type="submit" class="btn btn-success btn-sm">Buscar</button>
-                                                </form>
-                                                <button id='<% out.print(mostrar3); %>' style='background-color: #6890A2; border:none; display: none; margin-top: 5px; margin-bottom: 5px;' name="button" value="update" type="submit" class="btn btn-success btn-sm col-lg-6 offset-3" onclick="verAmigos()">Ver amigos</button>
-
+                                    
                                                 <%   
-                                                  
-       ArrayList<String> a = new ArrayList<String>();
+HashMap<String, ArrayList<String>> m = new HashMap<String, ArrayList<String>>();
+       
+    ArrayList<String> a = new ArrayList<String>();
        
         Class.forName("com.mysql.jdbc.Driver");
-        Connection conexionAL = DriverManager.getConnection("jdbc:mysql://localhost:3306/juegos","root", "");
-        Statement sAL = conexionAL.createStatement();
-        ResultSet juegosAL = sAL.executeQuery("SELECT NOM, NOMJUE FROM TIENEN T JOIN  AMIGO A ON T.CODAMI=A.CODAMI"
-          + " JOIN JUEGO J ON T.CODJUE=J.CODJUE WHERE NOMJUE= '"+ juego +"' ORDER BY NOM"); 
-        while (juegosAL.next()) {
-            a.add(juegosAL.getString("NOM"));
+        Connection conexionA = DriverManager.getConnection("jdbc:mysql://localhost:3306/juegos","root", "");
+        Statement sA = conexionA.createStatement();
+        ResultSet juegosA = sA.executeQuery("SELECT * FROM JUEGO J JOIN CATEGORIA C ON J.CODCAT=C.CODCAT WHERE NOMCAT='Dados' ORDER BY NOMJUE"); 
+        while (juegosA.next()) {
+            a.add(juegosA.getString("NOMJUE"));
         }
-        conexionAL.close();
-        out.println("<div class='col-lg-8 offset-2' id='verAmigos' style='display: none; margin-top: 10px;'><table id='tablaamigoss' class='table table-striped '>");
-        for(String amigos: a) {
-          out.println("<tr><td>" + amigos + "</td></tr>");
+        conexionA.close();
+        
+    ArrayList<String> b = new ArrayList<String>();
+       
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conexionB = DriverManager.getConnection("jdbc:mysql://localhost:3306/juegos","root", "");
+        Statement sB = conexionB.createStatement();
+        ResultSet juegosB = sB.executeQuery("SELECT * FROM JUEGO J JOIN CATEGORIA C ON J.CODCAT=C.CODCAT WHERE NOMCAT='Fichas' ORDER BY NOMJUE"); 
+        while (juegosB.next()) {
+            b.add(juegosB.getString("NOMJUE"));
         }
-        out.println("<p>Lo tienen " + a.size() + " amigos</p>");
-        out.println("</table></div>");
+        conexionB.close();
         
+    ArrayList<String> c = new ArrayList<String>();
+       
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conexionC = DriverManager.getConnection("jdbc:mysql://localhost:3306/juegos","root", "");
+        Statement sC = conexionC.createStatement();
+        ResultSet juegosC = sC.executeQuery("SELECT * FROM JUEGO J JOIN CATEGORIA C ON J.CODCAT=C.CODCAT WHERE NOMCAT='Cartas' ORDER BY NOMJUE"); 
+        while (juegosC.next()) {
+            c.add(juegosC.getString("NOMJUE"));
+        }
+        conexionC.close();
         
-        %>                                       
-        <span id='<% out.print(mostrar4); %>' style='display: none; color:#d62d0d;'>Nadie tiene ese juego</span>
-                                                </div>
-                                            </div>
-                                                
+    ArrayList<String> d = new ArrayList<String>();
+       
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conexionD = DriverManager.getConnection("jdbc:mysql://localhost:3306/juegos","root", "");
+        Statement sD = conexionD.createStatement();
+        ResultSet juegosD = sD.executeQuery("SELECT * FROM JUEGO J JOIN CATEGORIA C ON J.CODCAT=C.CODCAT WHERE NOMCAT='Tablero' ORDER BY NOMJUE"); 
+        while (juegosD.next()) {
+            d.add(juegosD.getString("NOMJUE"));
+        }
+        conexionD.close();
+        
+
+m.put("Dados",a);
+m.put("Fichas",b);
+m.put("Cartas",c);
+m.put("Tablero",d);
+
+
+
+        %>                                    
+                                    <div class="contenido">
+                                        <div class="col-lg-10 offset-1 row" style="margin-top: 50px;">
+                                           
+<% 
+            for (Map.Entry <String,ArrayList<String>> pareja: m.entrySet()) {
+              out.print("<div class='col-lg-4 offset-1 cat'><p id='title' style='display: inline';>");
+                  out.print(pareja.getKey());
+              out.print("</p><br/><div id='losJuegos' style='display: inline';><ul>");
+                for(String juegos: pareja.getValue()) {
+                    out.print("<li>"+juegos+"</li>");
+                }
+              out.print("</ul></div></div>");
+            }
+%>    
                                         </div>
-
                                     </div>
-
-
-
-
-
                             </main>
-                            <div id="freepikcon">
-                                <div id="freepik">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
-                            </div>
 
-                    </body>
+                    <div id="freepikcon">
+                        <div id="freepik">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+                    </div>
+
+            </body>
 
                     <script src="js/buscadorTabla.js" type="text/javascript"></script>
                     <script>
@@ -278,6 +227,8 @@
                             document.getElementById("verAmigos").style.display = "none";
                             document.getElementById("ver").style.display = "none";
                         };
+                        
+                       
                         
                         
 

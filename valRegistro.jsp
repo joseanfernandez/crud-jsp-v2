@@ -1,3 +1,4 @@
+<%@page import="org.apache.commons.codec.digest.DigestUtils"%>
 <%@page import="java.sql.PreparedStatement"%>
     <%@page import="java.sql.Statement"%>
         <%@page import="java.sql.ResultSet"%>
@@ -14,6 +15,7 @@
 
                         <body>
                             <%
+        
       try {
       Class.forName("com.mysql.jdbc.Driver");
       Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/juegos","root", "");
@@ -31,13 +33,15 @@
       if (existe.getRow() != 0) {
         out.println("El correo electrónico ya está en uso.");
       } else { 
+        String password = request.getParameter("passw");
+        String sha1 = DigestUtils.sha1Hex(password); 
         String insercion = "INSERT INTO AMIGO (EMAIL, USER, NOM, APE, PASSW) VALUES ("
           
           + " '" + request.getParameter("email")
           + "', '" + request.getParameter("user")
           + "', '" + request.getParameter("nom")
           + "', '" + request.getParameter("ape")
-          + "', '" + request.getParameter("passw") + "')";
+          + "', '" + sha1 + "')";
         s.execute(insercion);
         
       }

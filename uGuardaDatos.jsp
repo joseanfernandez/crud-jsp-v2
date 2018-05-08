@@ -1,3 +1,4 @@
+<%@page import="org.apache.commons.codec.digest.DigestUtils"%>
 <%@page import="java.sql.PreparedStatement"%>
     <%@page import="java.sql.Statement"%>
         <%@page import="java.sql.ResultSet"%>
@@ -27,12 +28,15 @@
       Statement s = conexion.createStatement();
 
       request.setCharacterEncoding("UTF-8");
-      
+      String password = request.getParameter("passw");
+        String sha1 = DigestUtils.sha1Hex(password);
+        
+        
       String actualizacion = "UPDATE AMIGO SET "
                            
                            + "nom='" + request.getParameter("nom")
                            + "', ape='" + request.getParameter("ape")
-                           + "', passw='" + request.getParameter("passw")
+                           + "', passw='" + sha1
                            + "' WHERE EMAIL='"+ email  +"'";
         
       s.execute(actualizacion);

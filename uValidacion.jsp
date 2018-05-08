@@ -1,3 +1,4 @@
+<%@page import="org.apache.commons.codec.digest.DigestUtils"%>
 <%@page import="java.sql.PreparedStatement"%>
     <%@page import="java.sql.Statement"%>
         <%@page import="java.sql.ResultSet"%>
@@ -17,13 +18,14 @@
     try{
         String email = request.getParameter("email");   
         String password = request.getParameter("pass");
+        String sha1 = DigestUtils.sha1Hex(password); 
         out.println(email);
         out.println(password);
         Class.forName("com.mysql.jdbc.Driver");  // MySQL database connection
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/juegos","root", "");    
         PreparedStatement pst = conn.prepareStatement("SELECT EMAIL,PASSW FROM AMIGO WHERE  EMAIL=? AND PASSW=?");
         pst.setString(1, email);
-        pst.setString(2, password);
+        pst.setString(2, sha1);
         ResultSet rs = pst.executeQuery();                        
         if(rs.next()) {     
            //out.println("Valid login credentials");
